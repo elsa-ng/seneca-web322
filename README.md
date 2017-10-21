@@ -1,4 +1,4 @@
-# seneca-web322-wcng1
+# seneca-web322
 Seneca College - WEB322 Web Development Assignment (Fall 2017)
 
 Assignment 2:
