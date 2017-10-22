@@ -2,8 +2,11 @@
 <h2>Fall 2017 WEB322 Web Development Assignment</h2>
 
 <h3>Keep Calm, Code On and Don't Plagiarize!</h3>
+<<<<<<< HEAD
 It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please properly reference it.
-<hr />
+=======
+It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please properly reference it.        
+>>>>>>> c5d28aede992acbb3242846aea5843c4343d1547
 
 <div>
   <b>Assignment 2</b><br/>
