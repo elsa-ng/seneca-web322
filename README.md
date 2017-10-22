@@ -1,7 +1,7 @@
 # seneca-web322
 <p><b>Fall 2017 WEB322 Web Development Assignment</b></p>
 
-<p><b>Keep Calm, Code On and Don't Plagiarize!</b>
+<p><b>Keep Calm, Code On and Don't Plagiarize!</b><br/>
 It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please properly reference it.</p>
 
 <div>
