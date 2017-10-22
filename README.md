@@ -1,8 +1,8 @@
 # seneca-web322
-<h2>Fall 2017 WEB322 Web Development Assignment</h2>
+<p><b>Fall 2017 WEB322 Web Development Assignment</b></p>
 
-<h4>Keep Calm, Code On and Don't Plagiarize!</h4>
-It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please properly reference it.<br/>
+<p><b>Keep Calm, Code On and Don't Plagiarize!</b>
+It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please properly reference it.</p>
 
 <div>
   <b>Assignment 2</b><br/>
