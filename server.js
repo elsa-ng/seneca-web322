@@ -106,6 +106,10 @@ app.get("/departments", (req, res)=>{
     }); 
 });
 
+app.get("/employees/add", (req, res)=>{
+    res.render("addEmployee");
+});
+
 app.use((req, res)=>{
     res.status(404).send("Page Not Found");
 });
