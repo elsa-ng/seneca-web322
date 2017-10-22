@@ -6,7 +6,7 @@ It is okay to read someone's code and learn from it, so if you find my code usef
 
 <div>
   <b>Assignment 2</b><br/>
-  An ongoing Fall 2017 WEB 322 assignment that:
+  An ongoing development that:
   <ul>
     <li>creates a web app that uses multiple routes which serve static files (HTML & CSS)</li>
     <li>serves as the "scaffolding" for future assignments</li>
@@ -16,7 +16,7 @@ It is okay to read someone's code and learn from it, so if you find my code usef
 
 <div>
   <b>Assignment 3</b><br/>
-  An ongoing Fall 2017 WEB 322 assignment that:
+  An ongoing development that:
   <ul>
     <li>extends the app to listen on a number of additional routes using Express</li>
     <li>handles requests for data on mock datasets using a custom (promise driven) module</li>
@@ -25,7 +25,7 @@ It is okay to read someone's code and learn from it, so if you find my code usef
 
 <div>
   <b>Assignment 4</b><br/>
-  An ongoing Fall 2017 WEB 322 assignment that:
+  An ongoing development that:
   <ul>
     <li>extends the app to listen on a number of additional routes</li>
     <li>works with Handlebars.js as a templating engine</li>
