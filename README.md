@@ -1,14 +1,14 @@
 # seneca-web322
 <h2>Fall 2017 WEB322 Web Development Assignment</h2>
 
-<b>Keep Calm, Code On and Don't Plagiarize!</b><br/>
+<h3><em>Keep Calm, Code On and Don't Plagiarize!</em></h3><br/>
 It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please properly reference it.        
 
 <div>
   <b>Assignment 2</b><br/>
   An ongoing development that:
   <ul>
-    <li>creates a web app that uses multiple routes which serve static files (HTML & CSS)</li>
+    <li>creates a web app that uses multiple routes which serve static files (HTML and CSS)</li>
     <li>serves as the "scaffolding" for future assignments</li>
     <li>deploys a web app that is hosted on Heroku: https://seneca-web322-wcng1.herokuapp.com/</li>
   </ul>
