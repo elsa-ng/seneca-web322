@@ -57,9 +57,9 @@ app.get("/about", (req, res)=>{
 app.get("/employees", (req, res)=>{
     if (req.query.status){
         data_service.getEmployeesByStatus(req.query.status).then((data)=>{
-            res.render("employeeList", {data: data, title: "Employees"});
+            res.json(data);
         }).catch((err)=>{
-            res.render("employeeList", {data: {}, title: "Employees"});
+            res.json(err);
         });
     } else if (req.query.department){
         data_service.getEmployeesByDepartment(req.query.department).then((data)=>{
@@ -75,9 +75,9 @@ app.get("/employees", (req, res)=>{
         });
     } else {
         data_service.getAllEmployees().then((data)=>{
-            res.json(data);
+            res.render("employeeList", {data: data, title: "Employees"});
         }).catch((err)=>{
-            res.json(err);
+            res.render("employeeList", {data: {}, title: "Employees"});
         });
     }
 });
