@@ -2,7 +2,7 @@
 Seneca College - WEB322 Web Development Assignment (Fall 2017)
 
 **************************************************************
-<b>Keep Calm, Code On and Don't Plagiarize!</b>
+<b>Keep Calm, Code On and Don't Plagiarize!</b><br/>
 It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please properly reference it.        
 **************************************************************
 
