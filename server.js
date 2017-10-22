@@ -110,6 +110,11 @@ app.get("/employees/add", (req, res)=>{
     res.render("addEmployee");
 });
 
+app.post("/employees/add", (req, res)=>{
+    console.log(req.body);
+    res.redirect("/employees");
+});
+
 app.use((req, res)=>{
     res.status(404).send("Page Not Found");
 });
