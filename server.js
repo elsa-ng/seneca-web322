@@ -110,6 +110,14 @@ app.get("/employees/add", (req, res)=>{
     res.render("addEmployee");
 });
 
+app.post("/employees/add", (req, res)=>{
+    data_service.addEmployee(req.body).then(()=>{
+        res.redirect("/employees");
+    }).catch((err)=>{
+        res.json(err);
+    });
+});
+
 app.use((req, res)=>{
     res.status(404).send("Page Not Found");
 });
