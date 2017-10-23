@@ -38,6 +38,16 @@ nav ul li a{
     font-size:13px;
 }
 
+nav ul li a:active{
+    color: rgb(156, 154, 154);
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: rgb(156, 154, 154);
+    text-decoration: none;
+}
+
 aside.col-md-3{
     background-color: #c7fcfa
 }

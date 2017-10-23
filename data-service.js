@@ -194,6 +194,8 @@ module.exports.getDepartments = () => {
     });
 };
 
+// exports addEmployee() to be called from server.js
+// push new employee into into employees[]
 module.exports.addEmployee = (employeeData) => {
     return new Promise((resolve, reject)=>{
         if (employeeData){
@@ -207,6 +209,8 @@ module.exports.addEmployee = (employeeData) => {
     });
 }
 
+// exports updateEmployee() to be called from server.js
+// updates employee information by replacing old info with new info
 module.exports.updateEmployee = (employeeData) => {
     return new Promise((resolve, reject)=>{
         let notFound = true;
