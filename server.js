@@ -84,9 +84,9 @@ app.get("/employees", (req, res)=>{
 
 app.get("/employee/:value", (req,  res)=>{
     data_service.getEmployeeByNum(req.params.value).then((data)=>{
-        res.json(data);
+        res.render("employee", {data: data});
     }).catch((err)=>{
-        res.json(err);
+        res.status(404).send("Employee Not Found");
     });
 });
 
@@ -112,6 +112,14 @@ app.get("/employees/add", (req, res)=>{
 
 app.post("/employees/add", (req, res)=>{
     data_service.addEmployee(req.body).then(()=>{
+        res.redirect("/employees");
+    }).catch((err)=>{
+        res.json(err);
+    });
+});
+
+app.post("/employee/update", (req, res)=>{
+    data_service.updateEmployee(req.body).then(()=>{
         res.redirect("/employees");
     }).catch((err)=>{
         res.json(err);
