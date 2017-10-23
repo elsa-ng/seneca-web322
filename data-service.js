@@ -2,6 +2,7 @@ const fs = require("fs");
 
 var employees = [];
 var departments = [];
+var empCount = 0;
 
 // exports initialize() so it can be called from server.js
 // initializes the employees and departments array
@@ -27,6 +28,7 @@ module.exports.initialize = () => {
                                 departments.push(depData[y]);
                             }
                             if (departments.length > 0){
+                                empCount = employees.length;
                                 resolve();
                             } else {
                                 reject({message:"unable to read file"});
@@ -191,3 +193,17 @@ module.exports.getDepartments = () => {
         }
     });
 };
+
+module.exports.addEmployee = (employeeData) => {
+    return new Promise((resolve, reject)=>{
+        empCount++;
+        employeeData.employeeNum = empCount;
+        employees.push(employeeData);
+
+        if(employees.length == empCount){
+            resolve();
+        } else {
+            reject({message:"failed to add employee"});
+        }
+    });
+}
