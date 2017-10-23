@@ -1,10 +1,10 @@
 /*********************************************************************************
-* WEB322 – Assignment 02
+* WEB322 – Assignment 04
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part
 * of this assignment has been copied manually or electronically from any other source
 * (including 3rd party web sites) or distributed to other students.
 *
-* Name: Wai Chi Ng          Student ID: 140634163         Date: October 4, 2017
+* Name: Wai Chi Ng          Student ID: 140634163         Date: October 22, 2017
 *
 * Online (Heroku) Link: https://seneca-web322-wcng1.herokuapp.com/
 *
@@ -57,21 +57,21 @@ app.get("/about", (req, res)=>{
 app.get("/employees", (req, res)=>{
     if (req.query.status){
         data_service.getEmployeesByStatus(req.query.status).then((data)=>{
-            res.json(data);
+            res.render("employeeList", {data: data, title: "Employees"});
         }).catch((err)=>{
-            res.json(err);
+            res.render("employeeList", {data: {}, title: "Employees"});
         });
     } else if (req.query.department){
         data_service.getEmployeesByDepartment(req.query.department).then((data)=>{
-            res.json(data);
+            res.render("employeeList", {data: data, title: "Employees"});
         }).catch((err)=>{
-            res.json(err);
+            res.render("employeeList", {data: {}, title: "Employees"});
         });
     } else if (req.query.manager){
         data_service.getEmployeesByManager(req.query.manager).then((data)=>{
-            res.json(data);
+            res.render("employeeList", {data: data, title: "Employees"});
         }).catch((err)=>{
-            res.json(err);
+            res.render("employeeList", {data: {}, title: "Employees"});
         });
     } else {
         data_service.getAllEmployees().then((data)=>{
