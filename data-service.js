@@ -161,11 +161,11 @@ module.exports.getEmployeeByNum = (num) => {
 // returns the results in an array through a promise
 module.exports.getManagers = () => {
     return new Promise((resolve, reject)=>{     
-        let  isMan = [];
+        let isMan = [];
 
         if (employees.length > 0){
             for (let k in employees){
-                if (employees[k].isManager == true){
+                if (employees[k].isManager){
                     isMan.push(employees[k]);
                 }
             }
@@ -196,14 +196,36 @@ module.exports.getDepartments = () => {
 
 module.exports.addEmployee = (employeeData) => {
     return new Promise((resolve, reject)=>{
-        empCount++;
-        employeeData.employeeNum = empCount;
-        employees.push(employeeData);
-
-        if(employees.length == empCount){
+        if (employeeData){
+            empCount++;
+            employeeData.employeeNum = empCount;
+            employees.push(employeeData);
             resolve();
         } else {
             reject({message:"failed to add employee"});
+        }
+    });
+}
+
+module.exports.updateEmployee = (employeeData) => {
+    return new Promise((resolve, reject)=>{
+        let notFound = true;
+        
+        if (employeeData) {
+            for (let i = 0; i < employees.length && notFound; i++){
+                if (employees[i].employeeNum == employeeData.employeeNum){
+                    employees[i] = employeeData;
+                    notFound = false;
+                }
+            }
+            
+            if (notFound){
+                reject({message:"no match is found"});
+            } else {
+                resolve();
+            }
+        } else {
+            reject({message: "did not receive employee data"});
         }
     });
 }
