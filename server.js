@@ -111,8 +111,11 @@ app.get("/employees/add", (req, res)=>{
 });
 
 app.post("/employees/add", (req, res)=>{
-    console.log(req.body);
-    res.redirect("/employees");
+    data_service.addEmployee(req.body).then(()=>{
+        res.redirect("/employees");
+    }).catch((err)=>{
+        res.json(err);
+    });
 });
 
 app.use((req, res)=>{
