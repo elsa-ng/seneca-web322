@@ -36,3 +36,12 @@ It is okay to read someone's code and learn from it, so if you find my code usef
     <li>extends data-service.js module to accommodate requests to add or update mock datasets</li>
   </ul>
 </div>
+
+<div>
+  <b>Assignment 5</b><br/>
+  An ongoing development that:
+  <ul>
+    <li>Works with Postgres data source on the server</li>
+    <li>Refactors the application</li>
+  </ul>
+</div>
