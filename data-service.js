@@ -13,7 +13,7 @@ var sequelize = new Sequelize('dc9kom4jkssc90', 'vuykagilysviaa', 'd8af55153ead7
 // define the Employee model
 var Employee = sequelize.define('Employee', {
     employeeNum: {
-        type: Selection.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
