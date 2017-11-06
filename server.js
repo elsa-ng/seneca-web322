@@ -1,10 +1,10 @@
 /*********************************************************************************
-* WEB322 – Assignment 04
+* WEB322 – Assignment 05
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part
 * of this assignment has been copied manually or electronically from any other source
 * (including 3rd party web sites) or distributed to other students.
 *
-* Name: Wai Chi Ng          Student ID: 140634163         Date: October 22, 2017
+* Name: Wai Chi Ng          Student ID: 140634163         Date: November 5, 2017
 *
 * Online (Heroku) Link: https://seneca-web322-wcng1.herokuapp.com/
 *
@@ -125,7 +125,7 @@ app.get("/departments", (req, res)=>{
 });
 
 app.get("/employees/add", (req, res)=>{
-    data_service.getDepartments().then((departments)=>{
+    data_service.getDepartments().then((data)=>{
         res.render("addEmployee", {departments: data});
     }).catch((err)=>{
         res.render("addEmployee", {departments: []});
@@ -149,9 +149,9 @@ app.post("/employee/update", (req, res)=>{
 });
 
 app.get("/department/:departmentId", (req,  res)=>{
-    data_service.getDepartmentById(req.params.value).then((data)=>{
+    data_service.getDepartmentById(req.params.departmentId).then((data)=>{
         res.render("department", {data: data});
-    }).catch((err)=>{
+    }).catch(()=>{
         res.status(404).send("Department Not Found");
     });
 });
@@ -173,6 +173,14 @@ app.post("/department/update", (req, res)=>{
         res.redirect("/departments");
     }).catch((err)=>{
         res.json(err);
+    });
+});
+
+app.get("/employee/delete/:empNum", (req, res)=>{
+    data_service.deleteEmployeeByNum(req.params.empNum).then(()=>{
+        res.redirect("/employees");
+    }).catch((err)=>{
+        res.status(500).send(err);
     });
 });
 

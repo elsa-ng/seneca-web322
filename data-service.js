@@ -59,7 +59,9 @@ module.exports.initialize = () => {
 // returns data through promise
 module.exports.getAllEmployees = () => {
     return new Promise((resolve, reject)=>{
-        Employee.findAll().then((data)=>{
+        Employee.findAll({
+            order: ["employeeNum"]
+        }).then((data)=>{
             resolve(data);
         }).catch((err)=>{
             reject("no results returned");
@@ -72,6 +74,7 @@ module.exports.getAllEmployees = () => {
 module.exports.getEmployeesByStatus = (empStatus) => {
     return new Promise((resolve, reject)=>{
         Employee.findAll({
+            order: ["employeeNum"],
             where: {
                 status: empStatus
             }
@@ -88,6 +91,7 @@ module.exports.getEmployeesByStatus = (empStatus) => {
 module.exports.getEmployeesByDepartment = (empDepartment) => {
     return new Promise((resolve, reject)=>{
         Employee.findAll({
+            order: ["employeeNum"],
             where: {
                 department: empDepartment
             }
@@ -104,6 +108,7 @@ module.exports.getEmployeesByDepartment = (empDepartment) => {
 module.exports.getEmployeesByManager = (manager) => {
     return new Promise((resolve, reject)=>{        
         Employee.findAll({
+            order: ["employeeNum"],
             where: {
                 employeeManagerNum: manager
             }
@@ -151,7 +156,9 @@ module.exports.getManagers = () => {
 // returns data through promise
 module.exports.getDepartments = () => {
     return new Promise((resolve, reject)=>{
-        Department.findAll().then((data)=>{
+        Department.findAll({
+            order: ["departmentId"]
+        }).then((data)=>{
             resolve(data);
         }).catch((err)=>{
             reject("no results returned");
@@ -288,3 +295,16 @@ module.exports.getDepartmentById = (id) =>{
     });
 };
 
+module.exports.deleteEmployeeByNum = (empNum) =>{
+    return new Promise((resolve, reject)=>{
+        Employee.destroy({
+            where: {
+                employeeNum: empNum
+            }
+        }).then(()=>{
+            resolve();
+        }).catch((err)=>{
+            reject("Unable to remove employee / Employee not found");
+        });
+    });
+};
