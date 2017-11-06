@@ -82,11 +82,29 @@ app.get("/employees", (req, res)=>{
     }
 });
 
-app.get("/employee/:value", (req,  res)=>{
-    data_service.getEmployeeByNum(req.params.value).then((data)=>{
-        res.render("employee", {data: data});
-    }).catch((err)=>{
-        res.status(404).send("Employee Not Found");
+app.get("/employee/:empNum", (req,  res)=>{
+    let viewData = {}; // empty object to store values
+
+    data_service.getEmployeeByNum(req.params.empNum).then((empData)=>{
+        viewData.data = empData; // store employee data (empData) in viewData as data (viewData.data)
+    }).catch(()=>{
+        viewData.data = null;
+    }).then(data_service.getDepartments).then((depData)=>{
+        viewData.departments = depData; // store list of available departments (depData) in viewData as departments (viewData.departments)
+
+        for (let i = 0; i < viewData.departments.length; i++){
+            if (viewData.departments[i].departmentId == viewData.data.department) {
+                viewData.departments[i].selected = true;
+            }
+        }
+    }).catch(()=>{
+        viewData.departments = [];
+    }).then(()=>{
+        if (viewData.data == null) {
+            res.status(404).send("Employee Not Found");
+        } else {
+            res.render("employee", {viewData: viewData});
+        }
     });
 });
 
@@ -107,7 +125,11 @@ app.get("/departments", (req, res)=>{
 });
 
 app.get("/employees/add", (req, res)=>{
-    res.render("addEmployee");
+    data_service.getDepartments().then((departments)=>{
+        res.render("addEmployee", {departments: data});
+    }).catch((err)=>{
+        res.render("addEmployee", {departments: []});
+    });
 });
 
 app.post("/employees/add", (req, res)=>{
