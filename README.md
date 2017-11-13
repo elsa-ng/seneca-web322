@@ -2,7 +2,7 @@
 <p><b>Fall 2017 WEB322 Web Development Assignment</b></p>
 
 <p><b>Keep Calm, Code On and Don't Plagiarize!</b><br/>
-It is okay to read someone's code and learn from it, so if you find my code useful and would like to include it in your solution then please reference it.</p>
+It is okay to read someone's code and learn from it. If you find my code useful and would like to include it in your solution then please reference it.</p>
 
 <div>
   <b>Assignment 2</b><br/>
