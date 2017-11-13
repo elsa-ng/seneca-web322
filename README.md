@@ -41,7 +41,7 @@ It is okay to read someone's code and learn from it. If you find my code useful 
   <b>Assignment 5</b><br/>
   An ongoing development that:
   <ul>
-    <li>Works with Postgres data source on the server</li>
+    <li>Works with Postgres data source on the server (data persistence)</li>
     <li>Refactors the application</li>
   </ul>
 </div>
