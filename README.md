@@ -1,16 +1,15 @@
-# seneca-web322
-## Fall 2017 WEB322 Web Development Assignment
+# seneca-web322 - Fall 2017 WEB322 Web Development Assignment
 
-### Keep Calm, Code On and Don't Plagiarize!
-### It is okay to read someone's code and learn from it. If you find my code useful and would like to include it in your solution then please reference it.</p>
+## Keep Calm, Code On and Don't Plagiarize!
+It is okay to read someone's code and learn from it. If you find my code useful and would like to include it in your solution then please reference it.</p>
 
-## Assignment 2
+### Assignment 2
 An ongoing development that:
 * creates a web app that uses multiple routes which serve static files (HTML and CSS)
 * serves as the "scaffolding" for future assignments
 * deploys a web app that is hosted on Heroku: https://seneca-web322-wcng1.herokuapp.com/
 
-## Assignment 3
+### Assignment 3
 An ongoing development that:
 * extends the app to listen on a number of additional routes using Express
 * handles requests for data on mock datasets using a custom (promise driven) module
