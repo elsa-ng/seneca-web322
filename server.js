@@ -16,7 +16,7 @@ const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const app = express();
-const HTTP_PORT = process.env.PORT || 8080;
+var HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -40,16 +40,12 @@ app.engine(".hbs", exphbs({
 
 app.set("view engine", ".hbs");
 
-/* I updated my server.js using the logic from the standard solution
-   which I obtained from Patrick. After reading the standard solution,
-   I realized I overlooked one important factor which stemmed from my
-   misunderstanding and misreading Assignment 3's instructions.
- */
-
+// setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", (req, res)=>{
     res.render("home");
 });
 
+// setup another route to listen on /about
 app.get("/about", (req, res)=>{
     res.render("about");
 });
@@ -114,7 +110,7 @@ app.get("/managers", (req, res)=>{
     }).catch((err)=>{
         res.render("employeeList", {data: {}, title: "Employees (Managers)"});
     });
-});
+}); // view an employee who is a manager by employeeId
 
 app.get("/departments", (req, res)=>{
     data_service.getDepartments().then((data)=>{
