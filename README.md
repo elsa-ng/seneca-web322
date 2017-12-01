@@ -83,5 +83,5 @@ An ongoing development that:
 
 ### Iteration 5
 An ongoing development that:
-* Works with Postgres data source on the server (data persistence)
-* Refactors the application
+* works with Postgres data source on the server (data persistence)
+* refactors the application
