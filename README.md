@@ -50,7 +50,7 @@ To simply access this web application online, please visit: https://seneca-web32
 Automatic deploys from master branch to Heroku are enanbled: https://seneca-web322-wcng1.herokuapp.com/
 
 ## Author
-* **Elsa (Wai Chi) Ng**
+* [**Elsa (Wai Chi) Ng**](https://github.com/elsa-ng)
 
 ## License
 This project is licensed under the [ISC License](https://www.isc.org/downloads/software-support-policy/isc-license/)
