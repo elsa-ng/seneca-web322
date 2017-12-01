@@ -1,6 +1,6 @@
 # Fall 2017 WEB322 Web Development Project: seneca-web322
 
-Note that automatic deploys from master branch to Heroku are enanbled: https://seneca-web322-wcng1.herokuapp.com/
+Note that automatic deploys from master branch to Heroku are enanbled: http://web322-test.herokuapp.com/
 
 ## Getting Started
 This Node.js web application is developed using Visual Studio Code. To obtain a copy of the project, simply clone the master branch. 
@@ -14,7 +14,7 @@ In addition, you will need to install the following dependencies:
 * [Body-parser](https://www.npmjs.com/package/body-parser)
 * [sequelize](https://www.npmjs.com/package/sequelize)
 
-To simply access this web application online, please visit: https://seneca-web322-wcng1.herokuapp.com/
+To simply access this web application online, please visit: http://web322-test.herokuapp.com/
 
 ### Installation
 To install Node.js, please visit https://nodejs.org/ to download the current release. Please follow the on screen instructions to install the current release. 
@@ -33,7 +33,7 @@ npm install body-parser --save
 npm install sequelize --save
 ```
 
-To simply access this web application online, please visit: https://seneca-web322-wcng1.herokuapp.com/
+To simply access this web application online, please visit: http://web322-test.herokuapp.com/
 
 ## Built With
 * [Node.js](https://nodejs.org/) - JavaScript runtime
@@ -47,7 +47,7 @@ To simply access this web application online, please visit: https://seneca-web32
 * JavaScript
 
 ## Deployment
-Automatic deploys from master branch to Heroku are enanbled: https://seneca-web322-wcng1.herokuapp.com/
+Automatic deploys from master branch to Heroku are enanbled: http://web322-test.herokuapp.com/
 
 ## Author
 * [**Elsa (Wai Chi) Ng**](https://github.com/elsa-ng)
@@ -64,7 +64,7 @@ It is okay to read someone's code and learn from it. If you find my code useful 
 An ongoing development that:
 * creates a web app that uses multiple routes which serve static files (HTML and CSS)
 * serves as the "scaffolding" for future assignments
-* deploys a web app that is hosted on Heroku: https://seneca-web322-wcng1.herokuapp.com/
+* deploys a web app that is hosted on Heroku: http://web322-test.herokuapp.com/
 
 ### Iteration 3
 An ongoing development that:
