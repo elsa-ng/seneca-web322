@@ -1,27 +1,19 @@
 # seneca-web322
-<p><b>Fall 2017 WEB322 Web Development Assignment</b></p>
+## Fall 2017 WEB322 Web Development Assignment
 
-<p><b>Keep Calm, Code On and Don't Plagiarize!</b><br/>
-It is okay to read someone's code and learn from it. If you find my code useful and would like to include it in your solution then please reference it.</p>
+### Keep Calm, Code On and Don't Plagiarize!
+### It is okay to read someone's code and learn from it. If you find my code useful and would like to include it in your solution then please reference it.</p>
 
-<div>
-  <b>Assignment 2</b><br/>
-  An ongoing development that:
-  <ul>
-    <li>creates a web app that uses multiple routes which serve static files (HTML and CSS)</li>
-    <li>serves as the "scaffolding" for future assignments</li>
-    <li>deploys a web app that is hosted on Heroku: https://seneca-web322-wcng1.herokuapp.com/</li>
-  </ul>
-</div>
+## Assignment 2
+An ongoing development that:
+* creates a web app that uses multiple routes which serve static files (HTML and CSS)
+* serves as the "scaffolding" for future assignments
+* deploys a web app that is hosted on Heroku: https://seneca-web322-wcng1.herokuapp.com/
 
-<div>
-  <b>Assignment 3</b><br/>
-  An ongoing development that:
-  <ul>
-    <li>extends the app to listen on a number of additional routes using Express</li>
-    <li>handles requests for data on mock datasets using a custom (promise driven) module</li>
-  </ul>
-</div>
+## Assignment 3
+An ongoing development that:
+* extends the app to listen on a number of additional routes using Express
+* handles requests for data on mock datasets using a custom (promise driven) module
 
 <div>
   <b>Assignment 4</b><br/>
