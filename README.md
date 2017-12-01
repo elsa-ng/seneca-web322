@@ -54,6 +54,7 @@ Automatic deploys from master branch to Heroku are enanbled: https://seneca-web3
 
 ## License
 This project is licensed under the [ISC License](https://www.isc.org/downloads/software-support-policy/isc-license/)
+
 A special note to current Seneca WEB322 students:
 **Keep Calm, Code On and Don't Plagiarize!**
 It is okay to read someone's code and learn from it. If you find my code useful and would like to include it in your solution then please reference it.
