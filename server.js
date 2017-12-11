@@ -11,6 +11,7 @@
 ********************************************************************************/ 
 
 const data_service = require("./data-service.js");
+const dataServiceComments = require("./data-service-comments.js");
 const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
