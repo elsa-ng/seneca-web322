@@ -64,3 +64,7 @@ footer h2{
     font-size:13px;
     padding:0 5px;	
 }
+
+.well .well{
+    background-color: white;
+}
