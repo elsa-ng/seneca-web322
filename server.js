@@ -48,7 +48,11 @@ app.get("/", (req, res)=>{
 
 // setup another route to listen on /about
 app.get("/about", (req, res)=>{
-    res.render("about");
+    dataServiceComments.getAllComments().then((commentData)=>{
+        res.render("about", {data: commentData});
+    }).catch(()=>{
+        res.render("about");
+    });
 });
 
 app.get("/employees", (req, res)=>{
@@ -181,14 +185,34 @@ app.get("/employee/delete/:empNum", (req, res)=>{
     });
 });
 
+app.post("/about/addComment", (req, res)=>{
+    dataServiceComments.addComment(req.body).then(()=>{
+        res.redirect("/about");
+    }).catch((err)=>{
+        console.log("Fail to add comment: " + err);
+        res.redirect("/about");
+    });
+});
+
+app.post("/about/addReply", (req, res)=>{
+    dataServiceComments.addReply(req.body).then(()=>{
+        res.redirect("/about");
+    }).catch((err)=>{
+        console.log("Fail to reply to comment: " + err);
+        res.redirect("/about");
+    });
+});
+
 app.use((req, res)=>{
     res.status(404).send("Page Not Found");
 });
 
-data_service.initialize().then(()=>{
+data_service.initialize()
+.then(dataServiceComments.initialize())
+.then(()=>{
     app.listen(HTTP_PORT, () =>{
         console.log("server listening on " + HTTP_PORT);
     }); 
 }).catch((err)=>{
-    res.json(err);
+    console.log("unable to start data_service");
 });
