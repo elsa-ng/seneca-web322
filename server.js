@@ -1,12 +1,12 @@
 /*********************************************************************************
-* WEB322 – Assignment 05
+* WEB322 – Assignment 06
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part
 * of this assignment has been copied manually or electronically from any other source
 * (including 3rd party web sites) or distributed to other students.
 *
-* Name: Wai Chi Ng          Student ID: 140634163         Date: November 5, 2017
+* Name: Wai Chi Ng          Student ID: 140634163         Date: December 19, 2017
 *
-* Online (Heroku) Link: http://web322-test.herokuapp.com/
+* Online (Heroku) Link: http://web322-wcng1-assign6.herokuapp.com/
 *
 ********************************************************************************/ 
 
