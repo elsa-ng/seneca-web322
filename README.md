@@ -1,6 +1,6 @@
 # Fall 2017 WEB322 Web Development Project: seneca-web322
 
-Note that automatic deploys from assign6 branch to Heroku are enanbled: http://web322-wcng1-assign6.herokuapp.com/
+Note that automatic deploys from assign6 branch to Heroku are enanbled: https://web322-wcng1-assign7.herokuapp.com/
 
 ## Getting Started
 This Node.js web application is developed using Visual Studio Code. To obtain a copy of the project, simply clone the master branch. 
@@ -15,7 +15,7 @@ In addition, you will need to install the following dependencies:
 * [sequelize](https://www.npmjs.com/package/sequelize)
 * [mongoose](http://mongoosejs.com/)
 
-To simply access this web application online, please visit: http://web322-wcng1-assign6.herokuapp.com/
+To simply access this web application online, please visit: https://web322-wcng1-assign7.herokuapp.com/
 
 ### Installation
 To install Node.js, please visit https://nodejs.org/ to download the current release. Please follow the on screen instructions to install the current release. 
@@ -37,7 +37,7 @@ npm install sequelize --save
 npm install mongoose --save
 ```
 
-To simply access this web application online, please visit: http://web322-wcng1-assign6.herokuapp.com/
+To simply access this web application online, please visit: https://web322-wcng1-assign7.herokuapp.com/
 
 ## Built With
 * [Node.js](https://nodejs.org/) - JavaScript runtime
@@ -52,7 +52,7 @@ To simply access this web application online, please visit: http://web322-wcng1-
 * JavaScript
 
 ## Deployment
-Automatic deploys from assign6 branch to Heroku are enanbled: http://web322-wcng1-assign6.herokuapp.com/
+Automatic deploys from assign6 branch to Heroku are enanbled: https://web322-wcng1-assign7.herokuapp.com/
 
 ## Author
 * [**Elsa (Wai Chi) Ng**](https://github.com/elsa-ng)
@@ -69,7 +69,7 @@ It is okay to read someone's code and learn from it. If you find my code useful 
 An ongoing development that:
 * creates a web app that uses multiple routes which serve static files (HTML and CSS)
 * serves as the "scaffolding" for future assignments
-* deploys a web app that is hosted on Heroku: http://web322-wcng1-assign6.herokuapp.com/
+* deploys a web app that is hosted on Heroku: https://web322-wcng1-assign7.herokuapp.com/
 
 ### Iteration 3
 An ongoing development that:
@@ -96,3 +96,9 @@ An ongoing development that:
 * works with MongoDB data source on the server using [mongoose](http://mongoosejs.com/)
 * works with data in views (.hbs templates)
 * adds a comments section to about.hbs
+
+### Iteration 7
+An ongoing development that:
+* works with the client-sessions module
+* incorporate data persistence to add user registration functionality
+* adds Login/Logout functionality to control authentication and authorization
