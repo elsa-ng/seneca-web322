@@ -14,6 +14,8 @@ In addition, you will need to install the following dependencies:
 * [Body-parser](https://www.npmjs.com/package/body-parser)
 * [sequelize](https://www.npmjs.com/package/sequelize)
 * [mongoose](http://mongoosejs.com/)
+* [client-sessions](https://www.npmjs.com/package/client-sessions)
+* [bcrypt](https://www.npmjs.com/package/bcryptjs)
 
 To simply access this web application online, please visit: https://web322-wcng1-assign7.herokuapp.com/
 
@@ -36,6 +38,12 @@ npm install sequelize --save
 ```
 npm install mongoose --save
 ```
+```
+npm install client-sessions --save
+```
+```
+npm install bcryptjs --save
+```
 
 To simply access this web application online, please visit: https://web322-wcng1-assign7.herokuapp.com/
 
@@ -47,6 +55,8 @@ To simply access this web application online, please visit: https://web322-wcng1
 * [Bootstrap 4](https://v4-alpha.getbootstrap.com/) - Framework for building responsive application
 * [sequelize](http://docs.sequelizejs.com/) - Promised-based Node.js ORM for Postgres
 * [mongoose](http://mongoosejs.com/) - A MongoDB object modeling module for node.js
+* [client-sessions](https://www.npmjs.com/package/client-sessions) - Session manager using encrypted tamper-free cookies
+* [bcrypt](https://www.npmjs.com/package/bcryptjs) - A password hashing function
 * HTML
 * CSS
 * JavaScript
@@ -99,6 +109,7 @@ An ongoing development that:
 
 ### Iteration 7
 An ongoing development that:
-* works with the client-sessions module
+* manages sessions using [client-sessions](https://www.npmjs.com/package/client-sessions)
 * incorporate data persistence to add user registration functionality
 * adds Login/Logout functionality to control authentication and authorization
+* add one way password encryption to store and work with passwords using [bcrypt.js](https://www.npmjs.com/package/bcryptjs)
