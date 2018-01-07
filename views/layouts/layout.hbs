@@ -18,6 +18,18 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h1>myApp</h1>
+					 {{#if session.user}}
+					 	{{#equal session.user.username user}}
+							<span class="pull-right">
+								<a href="/logout" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Log Out:user&nbsp;&nbsp;&nbsp;</a>
+							</span>
+						{{/equal}}
+					{{else}}
+						<span class="pull-right">
+							<a class="btn btn-success" href="/login">&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;</a>
+							<a class="btn btn-primary" href="/register">&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;&nbsp;</a>
+						</span>
+					{{/if}}
 				</div>
 			</div>
 		</div>
@@ -30,12 +42,16 @@
 						<li><a href="/">Home</a></li>
 						<li><a href="/about">About</a></li>
 					</ul>
-
-                    <ul class="pull-right">
-                        <li><a href="/employees">All Employees</a></li>
-                        <li><a href="/managers">Managers</a></li>
-                        <li><a href="/departments">Departments</a></li>
-                    </ul>
+					
+					{{#if session.user}}
+						{{#equal session.user.username user}}
+							<ul class="pull-right">
+								<li><a href="/employees">All Employees</a></li>
+								<li><a href="/managers">Managers</a></li>
+								<li><a href="/departments">Departments</a></li>
+							</ul>
+						{{/equal}}
+					{{/if}}
 				</div>
 			</div>
 		</div>
