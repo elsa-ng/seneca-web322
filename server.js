@@ -6,7 +6,7 @@
 *
 * Name: Wai Chi Ng          Student ID: 140634163         Date: January 6, 2017
 *
-* Online (Heroku) Link: http://web322-wcng1-assign6.herokuapp.com/
+* Online (Heroku) Link: https://web322-wcng1-assign7.herokuapp.com/
 *
 ********************************************************************************/ 
 
