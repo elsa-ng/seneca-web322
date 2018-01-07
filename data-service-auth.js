@@ -69,9 +69,11 @@ module.exports.checkUser = function(userData){
                     reject("Unable to find user: " + userData.user);
                 }else{
                     bcrypt.compare(userData.password, users[0].password).then((res)=>{
-                        resolve();
-                    }).catch(()=>{
-                        reject("Incorrect Password for user: " + userData.user);
+                        if (res === true){
+                            resolve();
+                        } else {
+                            reject("Incorrect Password for user: " + userData.user);
+                        }                        
                     });
                 }
             }).catch((err) => {
