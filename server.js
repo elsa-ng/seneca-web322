@@ -1,15 +1,16 @@
 /*********************************************************************************
-* WEB322 – Assignment 06
+* WEB322 – Assignment 07
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part
 * of this assignment has been copied manually or electronically from any other source
 * (including 3rd party web sites) or distributed to other students.
 *
-* Name: Wai Chi Ng          Student ID: 140634163         Date: December 19, 2017
+* Name: Wai Chi Ng          Student ID: 140634163         Date: January 6, 2017
 *
 * Online (Heroku) Link: http://web322-wcng1-assign6.herokuapp.com/
 *
 ********************************************************************************/ 
 
+const clientSessions = require("client-sessions");
 const data_service = require("./data-service.js");
 const dataServiceComments = require("./data-service-comments.js");
 const express = require("express");
@@ -19,9 +20,7 @@ const bodyParser = require("body-parser");
 const app = express();
 var HTTP_PORT = process.env.PORT || 8080;
 
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: true}));
-
+// register handlebars as the rendering engine for views
 app.engine(".hbs", exphbs({
     extname: ".hbs",
     defaultLayout: 'layout',
@@ -38,9 +37,37 @@ app.engine(".hbs", exphbs({
         }
     }
 }));
-
 app.set("view engine", ".hbs");
 
+// set up parser
+app.use(bodyParser.urlencoded({extended: true}));
+
+// setup static folder to load public files
+app.use(express.static('public'));
+
+// setup client-sessions as a middleware and configure it
+app.use(clientSessions({
+    cookieName: "session", // this is the object name that will be added to 'req'
+    secret: "web322_A7", // this should be a long un-guessable string.
+    duration: 2 * 60 * 1000, // duration of the session in milliseconds (2 minutes)
+    activeDuration: 1000 * 60 // the session will be extended by 1 minute at each request
+}));
+
+// custom middleware to expose the session object to all templates
+app.use(function(req, res, next){
+    res.locals.session = req.session;
+    next();
+});
+
+// helper middleware that checks if a user is logged in
+function ensureLogin(req, res, next){
+    if (!req.session.user){
+        res.redirect("/login");
+    } else {
+        next();
+    }
+}
+   
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", (req, res)=>{
     res.render("home");
@@ -55,7 +82,7 @@ app.get("/about", (req, res)=>{
     });
 });
 
-app.get("/employees", (req, res)=>{
+app.get("/employees", ensureLogin, (req, res)=>{
     if (req.query.status){
         data_service.getEmployeesByStatus(req.query.status).then((data)=>{
             res.render("employeeList", {data: data, title: "Employees"});
@@ -83,7 +110,7 @@ app.get("/employees", (req, res)=>{
     }
 });
 
-app.get("/employee/:empNum", (req,  res)=>{
+app.get("/employee/:empNum", ensureLogin, (req,  res)=>{
     let viewData = {}; // empty object to store values
 
     data_service.getEmployeeByNum(req.params.empNum).then((empData)=>{
@@ -109,7 +136,7 @@ app.get("/employee/:empNum", (req,  res)=>{
     });
 });
 
-app.get("/managers", (req, res)=>{
+app.get("/managers", ensureLogin, (req, res)=>{
     data_service.getManagers().then((data)=>{
         res.render("employeeList", {data: data, title: "Employees (Managers)"});
     }).catch((err)=>{
@@ -117,7 +144,7 @@ app.get("/managers", (req, res)=>{
     });
 }); // view an employee who is a manager by employeeId
 
-app.get("/departments", (req, res)=>{
+app.get("/departments", ensureLogin, (req, res)=>{
     data_service.getDepartments().then((data)=>{
         res.render("departmentList", {data: data, title: "Departments"});
     }).catch((err)=>{
@@ -125,7 +152,7 @@ app.get("/departments", (req, res)=>{
     }); 
 });
 
-app.get("/employees/add", (req, res)=>{
+app.get("/employees/add", ensureLogin, (req, res)=>{
     data_service.getDepartments().then((data)=>{
         res.render("addEmployee", {departments: data});
     }).catch((err)=>{
@@ -133,7 +160,7 @@ app.get("/employees/add", (req, res)=>{
     });
 });
 
-app.post("/employees/add", (req, res)=>{
+app.post("/employees/add", ensureLogin, (req, res)=>{
     data_service.addEmployee(req.body).then(()=>{
         res.redirect("/employees");
     }).catch((err)=>{
@@ -141,7 +168,7 @@ app.post("/employees/add", (req, res)=>{
     });
 });
 
-app.post("/employee/update", (req, res)=>{
+app.post("/employee/update", ensureLogin, (req, res)=>{
     data_service.updateEmployee(req.body).then(()=>{
         res.redirect("/employees");
     }).catch((err)=>{
@@ -149,7 +176,7 @@ app.post("/employee/update", (req, res)=>{
     });
 });
 
-app.get("/department/:departmentId", (req,  res)=>{
+app.get("/department/:departmentId", ensureLogin, (req,  res)=>{
     data_service.getDepartmentById(req.params.departmentId).then((data)=>{
         res.render("department", {data: data});
     }).catch(()=>{
@@ -157,11 +184,11 @@ app.get("/department/:departmentId", (req,  res)=>{
     });
 });
 
-app.get("/departments/add", (req, res)=>{
+app.get("/departments/add", ensureLogin, (req, res)=>{
     res.render("addDepartment");
 });
 
-app.post("/departments/add", (req, res)=>{
+app.post("/departments/add", ensureLogin, (req, res)=>{
     data_service.addDepartment(req.body).then(()=>{
         res.redirect("/departments");
     }).catch((err)=>{
@@ -169,7 +196,7 @@ app.post("/departments/add", (req, res)=>{
     });
 });
 
-app.post("/department/update", (req, res)=>{
+app.post("/department/update", ensureLogin, (req, res)=>{
     data_service.updateDepartment(req.body).then(()=>{
         res.redirect("/departments");
     }).catch((err)=>{
@@ -177,7 +204,7 @@ app.post("/department/update", (req, res)=>{
     });
 });
 
-app.get("/employee/delete/:empNum", (req, res)=>{
+app.get("/employee/delete/:empNum", ensureLogin, (req, res)=>{
     data_service.deleteEmployeeByNum(req.params.empNum).then(()=>{
         res.redirect("/employees");
     }).catch((err)=>{
