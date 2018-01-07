@@ -46,7 +46,6 @@ module.exports.registerUser = function(userData){
                             } else {
                                 reject("There was an error creating the user: " + err);
                             }
-
                         } else {
                             resolve();
                         }
