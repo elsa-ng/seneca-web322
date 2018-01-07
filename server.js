@@ -1,3 +1,5 @@
+import { EWOULDBLOCK } from "constants";
+
 /*********************************************************************************
 * WEB322 – Assignment 07
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part
@@ -13,6 +15,7 @@
 const clientSessions = require("client-sessions");
 const data_service = require("./data-service.js");
 const dataServiceComments = require("./data-service-comments.js");
+const dataServiceAuth = require("./data-service-auth.js");
 const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
@@ -230,12 +233,51 @@ app.post("/about/addReply", (req, res)=>{
     });
 });
 
+// renders the login view upon matching route
+app.get("/login", (req, res)=>{
+    res.render("login");
+});
+
+// renders the register view upon matching route
+app.get("/register", (req, res)=>{
+    res.render("register");
+});
+
+// submits user data for registration
+app.post("/register", (req, res)=>{
+    dataServiceAuth.registerUser(req.body).then(()=>{
+        res.render("register", {successMessage: "User created"});
+    }).catch((err)=>{
+        res.render("register", {errorMessage: err, user:req.body.user});
+    });
+});
+
+// submits user data for authentication
+app.post("/login", (req, res)=>{
+    dataServiceAuth.checkUser(req.body).then(()=>{
+        req.session.user = {
+            username: req.body.user
+        };
+
+        res.redirect("/employees");
+    }).catch((err)=>{
+        res.render("login", {errorMessage: err, user: req.body.user});
+    });
+});
+
+// logs out user, resets login session and renders the home view
+app.get("/logout", (req, res)=>{
+    req.session.reset();
+    res.redirect("/");
+});
+
 app.use((req, res)=>{
     res.status(404).send("Page Not Found");
 });
 
 data_service.initialize()
 .then(dataServiceComments.initialize())
+.then(dataServiceAuth.initialize())
 .then(()=>{
     app.listen(HTTP_PORT, () =>{
         console.log("server listening on " + HTTP_PORT);
